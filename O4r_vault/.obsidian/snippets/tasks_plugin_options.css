@@ -1,0 +1,21 @@
+.tasks-list-text a.tag {
+    color: #AEAEAE;
+}
+
+.tasks-backlink a.internal-link {
+    color: #AEAEAE;
+}
+
+.task-list-item[data-task-priority="highest"] input[type=checkbox] {
+    box-shadow: 0px 0px 2px 2px #FF0D00;
+    border-color: #FF0D00;
+}
+
+.task-list-item[data-task-priority="high"] input[type=checkbox] {
+    box-shadow: 0px 0px 2px 2px #67100c;
+    border-color: #67100c;
+}
+
+.task-list-item[data-task-priority="medium"] input[type=checkbox] {
+    box-shadow: 0px 0px 2px 2px #67100c;
+}

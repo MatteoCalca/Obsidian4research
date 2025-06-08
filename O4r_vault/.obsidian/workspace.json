@@ -1,40 +1,66 @@
 {
   "main": {
-    "id": "2aee060c1eac53c5",
+    "id": "4134d0c5ddfafc7b",
     "type": "split",
     "children": [
       {
-        "id": "4016f936bf3861de",
+        "id": "a0487f83f34afc1d",
         "type": "tabs",
         "children": [
           {
-            "id": "9d3d70df74b0dbb2",
+            "id": "af4f9e1604223df8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Welcome.md",
+                "file": "Daily Notes/2025/06-Jun/Daily/2025-06-09.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Welcome"
+              "title": "2025-06-09"
             }
-          }
-        ]
-      },
-      {
-        "id": "f313ca111948e26a",
-        "type": "tabs",
-        "children": [
+          },
           {
-            "id": "717d83c08118bb9c",
+            "id": "9b2c4ef1214deb75",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Projects/Project A.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Project A"
+            }
+          },
+          {
+            "id": "a7ab59a204d4f57e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Projects/Project B.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Project B"
+            }
+          },
+          {
+            "id": "62b7905c4ad81799",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Projects/Project C.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Project C"
             }
           }
         ]
@@ -43,15 +69,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "d6ad7139a3824391",
+    "id": "778f52282b9d860a",
     "type": "split",
     "children": [
       {
-        "id": "785a75ded751f48b",
+        "id": "cc8583a04e954d51",
         "type": "tabs",
         "children": [
           {
-            "id": "7152092c42fa066b",
+            "id": "156ac7e0dddb27c0",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -64,12 +90,12 @@
             }
           },
           {
-            "id": "6fa78ea857d8bd56",
+            "id": "24e8c953937a069e",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "stackelberg",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -81,7 +107,7 @@
             }
           },
           {
-            "id": "8068559f4120b634",
+            "id": "56c2781bf543a37f",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -89,28 +115,38 @@
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
             }
+          },
+          {
+            "id": "7caa161ea46ec64b",
+            "type": "leaf",
+            "state": {
+              "type": "vertical-tabs",
+              "state": {},
+              "icon": "gallery-vertical",
+              "title": "Vertical tabs"
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 246.5
   },
   "right": {
-    "id": "b664fc6232afa213",
+    "id": "c009c457c54c3a10",
     "type": "split",
     "children": [
       {
-        "id": "09d4b48ee4046f78",
+        "id": "c58c4a9cbe7ba999",
         "type": "tabs",
         "children": [
           {
-            "id": "1e794ca5731fb5d3",
+            "id": "bd6a43daee5389f9",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Welcome.md",
+                "file": "Daily Notes/2025/02-Feb/Daily/2025-02-23.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,72 +156,163 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Welcome"
+              "title": "Backlinks for 2025-02-23"
             }
           },
           {
-            "id": "0c7ad5fb222de967",
+            "id": "730443aa861cbcc7",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Welcome.md",
+                "file": "Daily Notes/2025/02-Feb/Daily/2025-02-23.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Welcome"
+              "title": "Outgoing links from 2025-02-23"
             }
           },
           {
-            "id": "405c87e879f9c3d7",
+            "id": "88900852a705950a",
             "type": "leaf",
             "state": {
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true,
-                "showSearch": false,
-                "searchQuery": ""
+                "useHierarchy": true
               },
               "icon": "lucide-tags",
               "title": "Tags"
             }
           },
           {
-            "id": "53c2f63cbfbfdf81",
+            "id": "41e2d9b73014e928",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "0a78d3025a99ff09",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Welcome.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "file": "Daily Notes/2024/11-Nov/Daily/2024-11-30.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Welcome"
+              "title": "Outline of 2024-11-30"
+            }
+          },
+          {
+            "id": "79b49a966cab06f4",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "Daily Notes/2025/05-May/Daily/2025-05-19.md"
+              },
+              "icon": "lucide-info",
+              "title": "File properties for 2025-05-19"
+            }
+          },
+          {
+            "id": "c51ef658d971c6fb",
+            "type": "leaf",
+            "state": {
+              "type": "planner-timeline",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Timeline"
+            }
+          },
+          {
+            "id": "673b72481f78d681",
+            "type": "leaf",
+            "state": {
+              "type": "planner-timeline",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Timeline"
             }
           }
-        ]
+        ],
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 458.5
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "switcher:Open quick switcher": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-day-planner:Open Timeline": false,
+      "obsidian-day-planner:Open Multi-Day View": false,
+      "obsidian-projects:Open projects": false,
+      "periodic-notes:Open today": false
     }
   },
-  "active": "9d3d70df74b0dbb2",
+  "active": "af4f9e1604223df8",
   "lastOpenFiles": [
-    "Welcome.md"
+    "z_Attachments/Pasted image 20250609004906.png",
+    "Daily Notes/2025/06-Jun/Daily/2025-06-09.md",
+    "z_Attachments/Pasted image 20250609005029.png",
+    "Projects/Project A.md",
+    "Projects/Project D.md",
+    "z_Templates/Projects template.md",
+    "z_Templates/Daily Note Template.md",
+    "Welcome.md",
+    "z_Templates/Zotero Import Template.md",
+    "z_Templates/European projects WP template.md",
+    "z_Templates/European projects Task template.md",
+    "Daily Notes/2025/06-Jun/Daily",
+    "Daily Notes/2025/06-Jun",
+    "Daily Notes/2025",
+    "Projects/Project C.md",
+    "Projects/Project B.md",
+    "Projects/Projects.md",
+    "z_Finished projects/L&D Shiny Dashboard.md",
+    "z_Finished projects",
+    "z_Attachments/druppEconomicsInequalityEnvironment2025/image-6-x136-y402.png",
+    "z_Attachments/druppEconomicsInequalityEnvironment2025/image-7-x142-y205.png",
+    "z_Attachments/kalkuhlRenewableEnergySubsidies2013/image-11-x193-y519.png",
+    "z_Attachments/druppEconomicsInequalityEnvironment2025/image-5-x227-y93.png",
+    "z_Attachments/ganelliCanGovernmentSpending2009/image-2-x27-y479.png",
+    "z_Attachments/fisher-postGovernmentRedistributionDevelopment2023/image-7-x235-y412.png",
+    "z_Attachments/ganelliCanGovernmentSpending2009/image-undefined-x305-y196.png",
+    "z_Attachments/emmerlingGlobalInequalityConsequences2024/image-9-x327-y117.png",
+    "z_Attachments/PhD Year Book 2025 - Annuario Dottorato 2025 - DEADLINE 14_03.msg",
+    "z_Attachments/kalkuhlRenewableEnergySubsidies2013",
+    "z_Attachments/druppEconomicsInequalityEnvironment2025",
+    "z_Attachments/IES_thoughts.xlsx",
+    "z_Attachments/ganelliCanGovernmentSpending2009",
+    "z_Attachments/fisher-postGovernmentRedistributionDevelopment2023",
+    "Projects/NEWPATHWAYS/NP-WP7/NP-Task 7.2.md",
+    "Projects/NEWPATHWAYS/NP-WP7/NP-WP7.md",
+    "Projects/NEWPATHWAYS/NP-WP7/NP-Task 7.3.md",
+    "Projects/NEWPATHWAYS/NP-WP7/NP-Task 7.1.md",
+    "Projects/NEWPATHWAYS/NP-WP6/NP-WP6.md",
+    "Projects/NEWPATHWAYS/NP-WP6/NP-Task 6.4.md",
+    "Projects/NEWPATHWAYS/NP-WP6/NP-Task 6.2.md",
+    "Projects/NEWPATHWAYS/NP-WP6/NP-Task 6.3.md",
+    "Projects/NEWPATHWAYS/NP-WP6/NP-Task 6.1.md",
+    "Projects/NEWPATHWAYS/NP-WP5/NP-WP5.md",
+    "Projects/NEWPATHWAYS/NP-WP5/NP-Task 5.4.md",
+    "Projects/NEWPATHWAYS/NP-WP5/NP-Task 5.3.md",
+    "Notes/DSA and CC paper graphic structure.canvas",
+    "Scenario map of Energy Autarchy paper.canvas",
+    "Projects/Untitled.canvas"
   ]
 }

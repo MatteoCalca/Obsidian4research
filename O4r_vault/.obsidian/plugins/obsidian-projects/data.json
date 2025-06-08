@@ -1,0 +1,543 @@
+{
+  "version": 2,
+  "projects": [
+    {
+      "fieldConfig": {
+        "milestone_date": {},
+        "task_lead": {}
+      },
+      "defaultName": "",
+      "templates": [],
+      "excludedNotes": [],
+      "isDefault": false,
+      "dataSource": {
+        "kind": "folder",
+        "config": {
+          "path": "Projects/NEWPATHWAYS",
+          "recursive": true
+        }
+      },
+      "newNotesFolder": "",
+      "views": [
+        {
+          "config": {
+            "fieldConfig": {
+              "exclude-from-project": {
+                "hide": true
+              },
+              "path": {
+                "hide": true
+              },
+              "tags": {
+                "hide": true
+              },
+              "milestone_date": {
+                "width": 174
+              },
+              "wp_lead": {
+                "hide": true
+              },
+              "start_month": {
+                "hide": true
+              },
+              "end_month": {
+                "hide": true
+              },
+              "CMCC_PMs": {
+                "hide": true
+              },
+              "participating": {
+                "width": 256
+              },
+              "title": {
+                "width": 475
+              }
+            },
+            "orderFields": [
+              "name",
+              "task_lead",
+              "participating",
+              "title",
+              "start_date",
+              "milestone",
+              "milestone_date",
+              "deliverable",
+              "deliverable_date",
+              "people",
+              "priority",
+              "status",
+              "Notes"
+            ]
+          },
+          "filter": {
+            "conjunction": "or",
+            "conditions": [
+              {
+                "field": "task_lead",
+                "operator": "contains",
+                "enabled": true,
+                "value": "CMCC"
+              },
+              {
+                "field": "participating",
+                "operator": "contains",
+                "enabled": true,
+                "value": "CMCC"
+              },
+              {
+                "field": "participating",
+                "operator": "contains",
+                "enabled": true,
+                "value": "all"
+              },
+              {
+                "field": "participating",
+                "operator": "contains",
+                "enabled": true,
+                "value": "WP_leaders"
+              },
+              {
+                "field": "name",
+                "operator": "contains",
+                "enabled": true,
+                "value": "Task 4"
+              }
+            ]
+          },
+          "colors": {
+            "conditions": [
+              {
+                "color": "#4c00ff",
+                "condition": {
+                  "field": "task_lead",
+                  "operator": "contains",
+                  "enabled": true,
+                  "value": "CMCC"
+                }
+              },
+              {
+                "color": "#a882ff",
+                "condition": {
+                  "field": "name",
+                  "operator": "contains",
+                  "enabled": true,
+                  "value": "Task 4"
+                }
+              }
+            ]
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "ddc3ad02-b2a0-4444-94cc-540e60419cd4",
+          "name": "Tasks",
+          "type": "table"
+        },
+        {
+          "config": {
+            "fieldConfig": {
+              "path": {
+                "hide": true
+              },
+              "deliverable_date": {
+                "hide": true
+              },
+              "exclude-from-project": {
+                "hide": true
+              },
+              "milestone": {
+                "hide": true
+              },
+              "milestone_date": {
+                "hide": true
+              },
+              "participating": {
+                "hide": true
+              },
+              "people": {
+                "hide": true
+              },
+              "start_date": {
+                "hide": true
+              },
+              "tags": {
+                "hide": true
+              },
+              "task_lead": {
+                "hide": true
+              },
+              "title": {
+                "width": 463
+              }
+            },
+            "orderFields": [
+              "name",
+              "title",
+              "wp_lead",
+              "CMCC_PMs",
+              "deliverable",
+              "start_month",
+              "end_month",
+              "Notes",
+              "priority",
+              "status"
+            ]
+          },
+          "filter": {
+            "conjunction": "and",
+            "conditions": [
+              {
+                "field": "tags",
+                "operator": "has-keyword",
+                "enabled": true,
+                "value": "type/work-package"
+              }
+            ]
+          },
+          "colors": {
+            "conditions": [
+              {
+                "color": "#a882ff",
+                "condition": {
+                  "field": "wp_lead",
+                  "operator": "contains",
+                  "enabled": true,
+                  "value": "CMCC"
+                }
+              }
+            ]
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "a2888111-d75f-461f-86ed-8fb052a17b53",
+          "name": "WPs",
+          "type": "table"
+        },
+        {
+          "config": {
+            "orderFields": [
+              "name",
+              "task_lead",
+              "Notes",
+              "deliverable",
+              "milestone",
+              "title",
+              "start_date",
+              "deliverable_date",
+              "milestone_date",
+              "exclude-from-project",
+              "participating",
+              "people",
+              "priority",
+              "status",
+              "tags",
+              "path",
+              "CMCC_PMs",
+              "end_month",
+              "start_month",
+              "wp_lead"
+            ],
+            "fieldConfig": {}
+          },
+          "filter": {
+            "conjunction": "and",
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "1920fa9c-2918-4c96-82e3-9949c9c49873",
+          "name": "All",
+          "type": "table"
+        },
+        {
+          "config": {
+            "interval": "month"
+          },
+          "filter": {
+            "conjunction": "and",
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "9c2aa75e-81c6-4bfe-a089-e75b22c702ab",
+          "name": "Calendar",
+          "type": "calendar"
+        }
+      ],
+      "id": "58c5c9bf-f846-4223-bcd9-7f12e4271442",
+      "name": "NEWPATHWAYS"
+    },
+    {
+      "fieldConfig": {
+        "perc_time": {},
+        "next_deliverable": {
+          "time": false
+        },
+        "hs_focus_work": {}
+      },
+      "defaultName": "",
+      "templates": [],
+      "excludedNotes": [
+        "Projects/Projects.md"
+      ],
+      "isDefault": true,
+      "dataSource": {
+        "kind": "folder",
+        "config": {
+          "path": "Projects",
+          "recursive": false
+        }
+      },
+      "newNotesFolder": "",
+      "views": [
+        {
+          "config": {
+            "fieldConfig": {
+              "path": {
+                "hide": true
+              },
+              "description": {
+                "width": 222
+              },
+              "version": {
+                "hide": true
+              },
+              "title": {
+                "hide": true
+              },
+              "start_date": {
+                "hide": true
+              },
+              "tags": {
+                "hide": true
+              },
+              "status": {
+                "width": 100
+              },
+              "progress_perc": {
+                "width": 142
+              },
+              "perc_time": {
+                "width": 135
+              }
+            },
+            "orderFields": [
+              "name",
+              "status",
+              "priority",
+              "perc_time",
+              "progress_perc",
+              "next_deliverable",
+              "hs_focus_work",
+              "hs_remaining",
+              "notes",
+              "description",
+              "linked_wp",
+              "path",
+              "start_date",
+              "tags",
+              "title",
+              "version"
+            ]
+          },
+          "filter": {
+            "conjunction": "and",
+            "conditions": []
+          },
+          "colors": {
+            "conditions": [
+              {
+                "color": "#ff0000",
+                "condition": {
+                  "field": "priority",
+                  "operator": "contains",
+                  "enabled": true,
+                  "value": "Highest"
+                }
+              },
+              {
+                "color": "#ff7b0f",
+                "condition": {
+                  "field": "priority",
+                  "operator": "contains",
+                  "enabled": true,
+                  "value": "High"
+                }
+              },
+              {
+                "color": "#ffbb00",
+                "condition": {
+                  "field": "priority",
+                  "operator": "contains",
+                  "enabled": true,
+                  "value": "Medium"
+                }
+              }
+            ]
+          },
+          "sort": {
+            "criteria": [
+              {
+                "field": "name",
+                "order": "asc",
+                "enabled": true
+              }
+            ]
+          },
+          "id": "18029c7e-e05a-4978-bd8f-b78b0f23ae42",
+          "name": "Table",
+          "type": "table"
+        },
+        {
+          "config": {
+            "groupByField": "status",
+            "columns": {
+              "Not started": {
+                "weight": 0,
+                "records": [
+                  "Projects/Adaptation limits.md",
+                  "Projects/WITCH diff.md",
+                  "Projects/Green fund.md"
+                ]
+              },
+              "Paused": {
+                "records": [
+                  "Projects/CLIFF.md",
+                  "Projects/Financial instruments for climate.md"
+                ],
+                "weight": 1
+              },
+              "In progress": {
+                "records": [
+                  "Projects/DSA and CC.md",
+                  "Projects/Econ-RICE50+.md",
+                  "Projects/Miscellanea.md",
+                  "Projects/PhD Thesis.md",
+                  "Projects/Energy Autarchy.md"
+                ],
+                "weight": 2
+              },
+              "Done": {
+                "weight": 3
+              }
+            }
+          },
+          "filter": {
+            "conjunction": "and",
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "0d63b312-4d3c-4e78-8370-c6758ba34f09",
+          "name": "Status",
+          "type": "board"
+        },
+        {
+          "config": {
+            "groupByField": "priority",
+            "columns": {
+              "Low": {
+                "weight": 0,
+                "records": [
+                  "Projects/Adaptation limits.md",
+                  "Projects/Green fund.md",
+                  "Projects/Financial instruments for climate.md",
+                  "Projects/WITCH diff.md"
+                ]
+              },
+              "Medium": {
+                "weight": 1,
+                "records": [
+                  "Projects/Miscellanea.md"
+                ]
+              },
+              "High": {
+                "weight": 2,
+                "records": [
+                  "Projects/DSA and CC.md",
+                  "Projects/EcoAmb Teaching.md"
+                ]
+              },
+              "Highest": {
+                "weight": 3,
+                "records": [
+                  "Projects/Econ-RICE50+.md",
+                  "Projects/Energy Autarchy.md",
+                  "Projects/CLIFF.md"
+                ]
+              }
+            }
+          },
+          "filter": {
+            "conjunction": "and",
+            "conditions": []
+          },
+          "colors": {
+            "conditions": [
+              {
+                "color": "#ff0000",
+                "condition": {
+                  "field": "priority",
+                  "operator": "contains",
+                  "enabled": true,
+                  "value": "Highest"
+                }
+              },
+              {
+                "color": "#ff7b0f",
+                "condition": {
+                  "field": "priority",
+                  "operator": "contains",
+                  "enabled": true,
+                  "value": "High"
+                }
+              },
+              {
+                "color": "#ffbb00",
+                "condition": {
+                  "field": "priority",
+                  "operator": "contains",
+                  "enabled": true,
+                  "value": "Medium"
+                }
+              }
+            ]
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "35237499-a891-42ed-95e5-b429ab192e6f",
+          "name": "Priority",
+          "type": "board"
+        }
+      ],
+      "id": "0e2714e8-8bc3-4fac-8f5b-0c6974d5e6b9",
+      "name": "All Projects"
+    }
+  ],
+  "archives": [],
+  "preferences": {
+    "projectSizeLimit": 1000,
+    "frontmatter": {
+      "quoteStrings": "PLAIN"
+    },
+    "locale": {
+      "firstDayOfWeek": "default"
+    },
+    "commands": [],
+    "linkBehavior": "open-editor"
+  }
+}

@@ -1,0 +1,17 @@
+.markdown-rendered h1 > a.internal-link, .cm-header.cm-header-1.cm-hmd-internal-link a {
+    color: #FFFFFF !important; }
+
+.markdown-rendered h2 > a.internal-link, .cm-header.cm-header-2.cm-hmd-internal-link a {
+    color: #F7B269 !important; }
+
+.markdown-rendered h3 > a.internal-link, .cm-header.cm-header-3.cm-hmd-internal-link a {
+    color: #B07DF7 !important; }
+
+.markdown-rendered h4 > a.internal-link, .cm-header.cm-header-4.cm-hmd-internal-link a {
+    color: #B07DF7 !important; }
+
+.markdown-rendered h5 > a.internal-link, .cm-header.cm-header-5.cm-hmd-internal-link a {
+    color: #B07DF7 !important; }
+
+.markdown-rendered h6 > a.internal-link, .cm-header.cm-header-6.cm-hmd-internal-link a {
+    color: #B07DF7 !important; }

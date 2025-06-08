@@ -1,0 +1,9 @@
+{
+  "exportPath": "./",
+  "baseFilename": "table-export",
+  "fileNumber": "004",
+  "sepChar": "sepChar-comma",
+  "quoteDataChar": "quoteChar-doubleQuotes",
+  "saveToClipboardToo": false,
+  "removeCRLF": "removeCRLF-string1"
+}

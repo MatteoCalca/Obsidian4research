@@ -1,1 +1,11 @@
-{}
+{
+  "baseFontSize": 14,
+  "cssTheme": "Minimal",
+  "enabledCssSnippets": [
+    "linkheadings_colored_as_headings",
+    "tasks_plugin_options",
+    "reduce_spacing_headings",
+    "table_wrap_text",
+    "remove_animations"
+  ]
+}

@@ -1,0 +1,5 @@
+/*Source: https://www.reddit.com/r/ObsidianMD/comments/so8x1i/how_to_fix_obsidian_animations/?rdt=45533*/
+
+* {
+    transition: var(--anim-duration-none) !important;
+    }
