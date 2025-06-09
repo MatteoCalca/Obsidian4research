@@ -8,7 +8,7 @@ library(tidyverse)
 library(ggplot2)
 library(ggpattern)
 
-ds <- read_csv("C:/Users/calcm/OneDrive - Politecnico di Milano/_PoliMi/Timetracking/table-export-004.csv") %>% 
+ds <- read_csv("../O4r_vault/table-export-004.csv") %>% 
   select(-Task)
 
 ds <- ds %>% 
@@ -41,7 +41,7 @@ wannasave = F
 
 ```{r}
 
-### Select the main 4 projects (except Miscellanea)
+### Select the main 4 projects (except the generic project Miscellanea, call it however you like)
 main_projects <- ds %>% 
   filter(project!="Miscellanea") %>% 
   group_by(project) %>% 
@@ -56,9 +56,7 @@ ds %>%
          type = if_else(type == "teaching","various",type)) %>%
   na.omit() %>% 
 group_by(project,type,month) %>% 
-  summarize(hours_worked = sum(diff_hours)) %>% 
-  filter(month != "mag") %>% 
-  mutate(month = factor(month,levels = c("nov","dic","gen","feb","mar","apr")))-> a
+  summarize(hours_worked = sum(diff_hours)) -> a
 
 
 a %>% 
