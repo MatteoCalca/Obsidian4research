@@ -8,23 +8,13 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a1a59e4b0755793c",
-            "type": "leaf",
-            "state": {
-              "type": "obsidian-projects",
-              "state": {},
-              "icon": "projects-icon",
-              "title": "Projects"
-            }
-          },
-          {
             "id": "424a36fa95f572bb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "Clock query.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -45,8 +35,7 @@
               "title": "2025-06-09"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -247,10 +236,11 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "f1e579f70171ca84",
+  "active": "424a36fa95f572bb",
   "lastOpenFiles": [
-    "Clock query.md",
+    "table-export-004.csv",
     "Daily Notes/2025/06-Jun/Daily/2025-06-09.md",
+    "Clock query.md",
     "Papers/calcaterraReducingCostCapital2024.md",
     "Projects/Project A.md",
     "z_Templates/Daily Note Template.md",
@@ -294,7 +284,6 @@
     "Projects/NEWPATHWAYS/NP-WP6/NP-Task 6.3.md",
     "Projects/NEWPATHWAYS/NP-WP6/NP-Task 6.1.md",
     "Projects/NEWPATHWAYS/NP-WP5/NP-WP5.md",
-    "Projects/NEWPATHWAYS/NP-WP5/NP-Task 5.4.md",
     "Notes/DSA and CC paper graphic structure.canvas",
     "Scenario map of Energy Autarchy paper.canvas",
     "Projects/Untitled.canvas"
