@@ -30,7 +30,7 @@ WHERE projecta_notes != NA
 ```
 
 ## Useful links
-
+[Italic script - Wikipedia](https://en.wikipedia.org/wiki/Italic_script)
 
 
 

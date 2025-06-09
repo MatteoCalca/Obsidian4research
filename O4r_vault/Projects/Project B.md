@@ -17,7 +17,7 @@ next_deliverable:
 ## To do
 ```tasks
 not done
-heading includes Untitled
+heading includes Project B
 ```
 
 
@@ -38,7 +38,7 @@ WHERE insert_here_custom_property != NA
  
 ```tasks
 done
-heading includes Untitled
+heading includes Project B
 ```
 
 
