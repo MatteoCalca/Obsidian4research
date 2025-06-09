@@ -45,13 +45,6 @@
         "nextStatusSymbol": " ",
         "availableAsCommand": true,
         "type": "CANCELLED"
-      },
-      {
-        "symbol": "C",
-        "name": "CMCC project involvement",
-        "nextStatusSymbol": "Y",
-        "availableAsCommand": false,
-        "type": "DONE"
       }
     ]
   },

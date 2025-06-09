@@ -27,20 +27,7 @@
   "pluginVersion": "0.27.0",
   "showCompletedTasks": true,
   "showSubtasksInTaskBlocks": true,
-  "icals": [
-    {
-      "name": "",
-      "email": "matteo.calcaterra@cmcc.it",
-      "url": "https://calendar.google.com/calendar/ical/matteo.calcaterra%40cmcc.it/private-800227ddf7a65fa5a6c5693c462603d3/basic.ics",
-      "color": "#1a88ff"
-    },
-    {
-      "name": "",
-      "email": "matteo.calcaterra@polimi.it",
-      "url": "https://outlook.office365.com/owa/calendar/8aade1e9a0c2451ca2e5192e1d2bb0d1@polimi.it/36c1f5b790cb4e009c1fb43a61a7470b1883518894837158083/calendar.ics",
-      "color": "#58bdca"
-    }
-  ],
+  "icals": [],
   "colorOverrides": [],
   "releaseNotes": true,
   "taskStatusOnCreation": " ",
