@@ -1,0 +1,289 @@
+---
+title: "Timetracking_Dataviz"
+format: html
+---
+
+```{r import_data}
+library(tidyverse)
+library(ggplot2)
+library(ggpattern)
+
+ds <- read_csv("C:/Users/calcm/OneDrive - Politecnico di Milano/_PoliMi/Timetracking/table-export-004.csv") %>% 
+  select(-Task)
+
+ds <- ds %>% 
+  filter(str_sub(Clock,1,3)=="202") %>% 
+  separate_longer_delim(cols = Clock,delim = "[CR]") %>% 
+  rename(day=starts_with("File"),project=Header,type=`Task type`) %>% 
+  separate_wider_delim(cols = Clock,delim = "--",names = c("start_time","end_time")) %>% 
+  mutate(across(c("start_time","end_time"),~ymd_hms(.x)),
+         diff_hours = as.numeric(difftime(end_time, start_time, units = "hours")),
+         project = str_sub(project,str_length("2024-12-02 > ")+1,-1),
+         type = case_when(str_sub(type,1,3)=="#pl" ~ "various",
+                          is.na(type) ~ "various",
+                          str_sub(type,1,3)=="#ac" ~ str_sub(type,str_length("#activity/")+1,-1))
+         )
+
+colorpalette <- c("#d88c9a", "#f2d0a9", "#f1e3d3", "#99c1b9", "#8e7dbe")
+colorpalette2 <- c("#e27396", "#ea9ab2", "#efcfe3", "#eaf2d7", "#b3dee2")
+
+theme_set(new = ggthemes::theme_clean() +
+            theme(legend.background = element_rect(color="white"),
+                  plot.background = element_rect(color="white"),
+                  panel.grid.major.y = element_blank(),
+                  strip.background=element_rect(fill="gray97")
+
+            ))
+
+wannasave = F
+
+```
+
+```{r}
+
+### Select the main 4 projects (except Miscellanea)
+main_projects <- ds %>% 
+  filter(project!="Miscellanea") %>% 
+  group_by(project) %>% 
+  summarize(project_hours = sum(diff_hours)) %>% 
+  arrange(desc(project_hours)) %>% 
+  slice(1:4) %>% 
+  pull(project)
+
+ds %>% 
+  mutate(month = month(ymd(day),label = TRUE, abbr = TRUE)) %>% 
+    mutate(project = if_else(project %in% main_projects, project, "Miscellanea"),
+         type = if_else(type == "teaching","various",type)) %>%
+  na.omit() %>% 
+group_by(project,type,month) %>% 
+  summarize(hours_worked = sum(diff_hours)) %>% 
+  filter(month != "mag") %>% 
+  mutate(month = factor(month,levels = c("nov","dic","gen","feb","mar","apr")))-> a
+
+
+a %>% 
+  ggplot(aes(x=month,y=hours_worked,fill=project))+
+  geom_col()+
+  scale_fill_manual(values = colorpalette)
+
+if (wannasave == T) {ggsave(plot=last_plot(),filename = "Figures/barchart_byproject.png", height=4,width=5)}
+
+a %>% 
+  ggplot(aes(x=month,y=hours_worked,fill=type))+
+  geom_col()+
+  scale_fill_manual(values = colorpalette2)
+
+if (wannasave == T) {ggsave(plot=last_plot(),filename = "Figures/barchart_bytype.png", height=4,width=5)}
+
+
+a %>% 
+  ggplot(aes(x=month,y=hours_worked,fill=project,pattern=type,pattern_angle=type))+
+  geom_col_pattern(
+    pattern_spacing=0.02,
+    pattern_fill="black",
+    pattern_size=0.01,
+    pattern_orientation="vertical"
+      ) +
+  scale_pattern_manual("stack",values = c("stripe","circle","stripe","stripe","none")) +
+  scale_pattern_angle_manual("stack",values = c(45,45,90,135,0))+
+  labs(
+    title = "Hours Worked by Month, Project, and Type",
+    x = "Month",
+    y = "Hours Worked",
+    fill = "Project",
+    pattern = "Type"
+  )+
+  scale_fill_manual(values = colorpalette)
+
+
+######### TILES BY MONTH HOURS WORKED
+
+a %>% 
+  na.omit() -> .a_2d
+
+.a_2d %>% 
+  group_by(month,project) %>% 
+  summarize(hours_worked = sum(hours_worked)) %>% 
+  mutate(type = "Total") -> .a_project
+
+.a_2d %>% 
+  group_by(month,type) %>% 
+  summarize(hours_worked = sum(hours_worked)) %>% 
+  mutate(project = "Total") -> .a_type
+
+.a_2d %>% 
+ggplot(aes(x=project,y=type))+
+  facet_wrap(~month)+
+  geom_tile(aes(fill=hours_worked))+
+  geom_point(data=.a_project, aes(color=hours_worked),size=15,shape=19)+
+  geom_point(data=.a_type, aes(color=hours_worked),size=15,shape=19)+
+  geom_text(data=.a_project, aes(label=round(hours_worked,0)))+
+  geom_text(data=.a_type, aes(label=round(hours_worked,0)))+
+  scale_fill_gradient(low = "white",high="#8e7dbe")+
+  scale_color_gradient(low = "white", high = "#d88c9a")+
+  geom_text(aes(label=round(hours_worked,0)))+
+  theme(panel.grid.major.x=element_blank(), #no gridlines
+        panel.grid.minor.x=element_blank(), 
+        panel.grid.major.y=element_blank(), 
+        panel.grid.minor.y=element_blank(),
+        panel.background=element_rect(fill="white"),
+        axis.text.x = element_text(angle=45, hjust = 0,vjust=0.5, size = 8,face = NULL),
+        axis.text.y = element_text(size = 8,face = NULL),
+        plot.title = element_text(size=10,face="bold"),
+        legend.title=element_text(face="bold", size=8),
+        legend.direction = "horizontal",
+        legend.position = c(0.84,0.25))  + 
+  scale_x_discrete(name="Project", position = "top") +
+  scale_y_discrete(name="Activity type", 
+                  # if you want the total to be at the bottom instead of at the top, 
+                  # you can set the limits of y  with the reversed order of the categories 
+                  limits = rev(c(unique(.a_2d$type), 'Total')))
+
+if (wannasave == T) {ggsave(plot=last_plot(),filename = "Figures/tilechart_bymonth_hours.png", height=6,width=8)}
+
+
+######### TILES BY MONTH PERCENTAGE
+
+a %>% 
+  na.omit() %>% 
+  group_by(month) %>% 
+  mutate(percwork = hours_worked / sum(hours_worked)) -> .a_2d
+
+.a_2d %>% 
+  group_by(month,project) %>% 
+  summarize(percwork = sum(percwork)) %>% 
+  mutate(type = "Total") -> .a_project
+
+.a_2d %>% 
+  group_by(month,type) %>% 
+  summarize(percwork = sum(percwork)) %>% 
+  mutate(project = "Total") -> .a_type
+
+.a_2d %>% 
+ggplot(aes(x=project,y=type))+
+  facet_wrap(~month)+
+  geom_tile(aes(fill=percwork))+
+  geom_point(data=.a_project, aes(color=percwork),size=15,shape=19)+
+  geom_point(data=.a_type, aes(color=percwork),size=15,shape=19)+
+  geom_text(data=.a_project, aes(label=paste0(round(percwork,2)*100,"%")))+
+  geom_text(data=.a_type, aes(label=paste0(round(percwork,2)*100,"%")))+
+  scale_fill_gradient(low = "white",high="#8e7dbe")+
+  scale_color_gradient(low = "white", high = "#d88c9a")+
+  geom_text(aes(label=paste0(round(percwork,2)*100,"%")),color="black")+
+  theme(panel.grid.major.x=element_blank(), #no gridlines
+        panel.grid.minor.x=element_blank(), 
+        panel.grid.major.y=element_blank(), 
+        panel.grid.minor.y=element_blank(),
+        panel.background=element_rect(fill="white"),
+        axis.text.x = element_text(angle=45, hjust = 0,vjust=0.5, size = 8,face = NULL),
+        axis.text.y = element_text(size = 8,face = NULL),
+        plot.title = element_text(size=10,face="bold"),
+        legend.title=element_text(face="bold", size=8),
+        legend.direction = "horizontal",
+        legend.position = c(0.84,0.25))  + 
+  scale_x_discrete(name="Project", position = "top") +
+  scale_y_discrete(name="Activity type", 
+                  # if you want the total to be at the bottom instead of at the top, 
+                  # you can set the limits of y  with the reversed order of the categories 
+                  limits = rev(c(unique(.a_2d$type), 'Total')))
+
+if (wannasave == T) {ggsave(plot=last_plot(),filename = "Figures/tilechart_bymonth_perchours.png", height=6,width=8)}
+
+
+######### TILES TOTAL PERCENTAGE
+
+a %>% 
+  na.omit() %>% 
+  group_by(project,type) %>%
+  summarize(hours_worked = sum(hours_worked)) %>% 
+  ungroup() %>% 
+  mutate(percwork = hours_worked / sum(hours_worked)) -> .a_2d
+
+.a_2d %>% 
+  group_by(project) %>% 
+  summarize(percwork = sum(percwork)) %>% 
+  mutate(type = "Total") -> .a_project
+
+.a_2d %>% 
+  group_by(type) %>% 
+  summarize(percwork = sum(percwork)) %>% 
+  mutate(project = "Total") -> .a_type
+
+.a_2d %>% 
+ggplot(aes(x=project,y=type))+
+  geom_tile(aes(fill=percwork))+
+  geom_point(data=.a_project, aes(color=percwork),size=15,shape=19)+
+  geom_point(data=.a_type, aes(color=percwork),size=15,shape=19)+
+  geom_text(data=.a_project, aes(label=paste0(round(percwork,2)*100,"%")))+
+  geom_text(data=.a_type, aes(label=paste0(round(percwork,2)*100,"%")))+
+  scale_fill_gradient(low = "white",high="#8e7dbe")+
+  scale_color_gradient(low = "white", high = "#d88c9a")+
+  geom_text(aes(label=paste0(round(percwork,2)*100,"%")),color="black")+
+  theme(panel.grid.major.x=element_blank(), #no gridlines
+        panel.grid.minor.x=element_blank(), 
+        panel.grid.major.y=element_blank(), 
+        panel.grid.minor.y=element_blank(),
+        panel.background=element_rect(fill="white"),
+        axis.text.x = element_text(angle=45, hjust = 0,vjust=0.5, size = 8,face = NULL),
+        axis.text.y = element_text(size = 8,face = NULL),
+        plot.title = element_text(size=10,face="bold"),
+        legend.title=element_text(face="bold", size=8))  + 
+  scale_x_discrete(name="Project", position = "top") +
+  scale_y_discrete(name="Activity type", 
+                  # if you want the total to be at the bottom instead of at the top, 
+                  # you can set the limits of y  with the reversed order of the categories 
+                  limits = rev(c(unique(.a_2d$type), 'Total')))
+
+if (wannasave == T) {ggsave(plot=last_plot(),filename = "Figures/tilechart_total_perchours.png", height=4,width=5)}
+
+
+####### TILES TOTAL TIME
+
+a %>% 
+  na.omit() %>% 
+  group_by(project,type) %>%
+  summarize(hours_worked = sum(hours_worked))  -> .a_2d
+
+.a_2d %>% 
+  group_by(project) %>% 
+  summarize(hours_worked = sum(hours_worked)) %>% 
+  mutate(type = "Total") -> .a_project
+
+.a_2d %>% 
+  group_by(type) %>% 
+  summarize(hours_worked = sum(hours_worked)) %>% 
+  mutate(project = "Total") -> .a_type
+
+.a_2d %>% 
+ggplot(aes(x=project,y=type))+
+  geom_tile(aes(fill=hours_worked))+
+  geom_point(data=.a_project, aes(color=hours_worked),size=15,shape=19)+
+  geom_point(data=.a_type, aes(color=hours_worked),size=15,shape=19)+
+  geom_text(data=.a_project, aes(label=round(hours_worked,0)))+
+  geom_text(data=.a_type, aes(label=round(hours_worked,0)))+
+  scale_fill_gradient(low = "white",high="#8e7dbe")+
+  scale_color_gradient(low = "white", high = "#d88c9a")+
+  geom_text(aes(label=round(hours_worked,0)),color="black")+
+  theme(panel.grid.major.x=element_blank(), #no gridlines
+        panel.grid.minor.x=element_blank(), 
+        panel.grid.major.y=element_blank(), 
+        panel.grid.minor.y=element_blank(),
+        panel.background=element_rect(fill="white"),
+        axis.text.x = element_text(angle=45, hjust = 0, size = 8,face = NULL),
+        axis.text.y = element_text(size = 8,face = NULL),
+        plot.title = element_text(size=10,face="bold"),
+        legend.title=element_text(face="bold", size=8))  + 
+  scale_x_discrete(name="Project", position = "top") +
+  scale_y_discrete(name="Activity type", 
+                  # if you want the total to be at the bottom instead of at the top, 
+                  # you can set the limits of y  with the reversed order of the categories 
+                  limits = rev(c(unique(.a_2d$type), 'Total')))
+
+if (wannasave == T) {ggsave(plot=last_plot(),filename = "Figures/tilechart_total_hours.png", height=4,width=5)}
+
+
+```
+
+
+
+
